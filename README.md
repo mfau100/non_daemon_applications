@@ -5,10 +5,10 @@
 
 1. Job (most common)
 
-# A Job runs a Pod to completion.
-# If the Pod exits successfully (exit code 0), it is not restarted.
+### A Job runs a Pod to completion.
+### If the Pod exits successfully (exit code 0), it is not restarted.
 
-# Example Job (busybox that exits immediately)
+### Example Job (busybox that exits immediately)
 
 apiVersion: batch/v1
 kind: Job
@@ -24,7 +24,7 @@ spec:
       restartPolicy: Never
 
 
-Apply:
+### Apply:
 
 oc apply -f busybox-job.yaml
 
