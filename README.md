@@ -28,6 +28,28 @@ spec:
 
 oc apply -f busybox-job.yaml
 
+2. CronJob (if you want to run it on a schedule)
+
+### Runs Jobs repeatedly on a schedule.
+### Still a non-daemon pattern.
+
+Example CronJob
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: busybox-cron
+spec:
+  schedule: "*/2 * * * *"  # every 2 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: busybox
+            command: ["sh", "-c", "echo Running task"]
+          restartPolicy: Never
+
 ## What not to use for non-daemon workloads
 ## ❌ Deployment
 
